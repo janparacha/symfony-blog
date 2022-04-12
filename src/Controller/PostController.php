@@ -19,8 +19,11 @@ class PostController extends AbstractController
     #[Route('/post/{id}', name: 'post_view', methods: ["GET"], requirements: ['id' => '\d+'])]
     public function post(): Response
     {
-        return $this->render('post/post.html.twig', [
-            'controller_name' => 'PostController',
+        return $this->render('post/view.html.twig', [
+            'post' => [
+                'title' => 'Le titre de l\'article',
+                'content' => 'Le texte super long de l\'article',
+            ],
         ]);
     }
 }
